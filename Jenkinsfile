@@ -1,21 +1,16 @@
 pipeline {
 	agent any
 	stages {
+		stage(clone) {
+                     steps {
+                            git 'https://github.com/deepak7026257210/java-maven-app.git'
+                              }
+                             }
 		stage('Build') {
 			steps {
-				sh 'mvn -B -DskipTests clean install'
+				sh 'mvn clean install'
 			}
-		}
-		stage('Test') {
-			steps {
-				sh 'mvn test'
-			}
-			post {
-				always {
-					junit 'target/surefire-reports/*.xml'
-				}
-			}
-		}
+		   }
 		
-	}
-}
+	          }
+                 }
