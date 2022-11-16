@@ -2,6 +2,10 @@ pipeline {
 	agent { 
 		label 'slavedp2'
 	}
+	tools {
+		maven 'maven'
+	}
+	
 	stages {
 		stage('Build') {
 			steps {
